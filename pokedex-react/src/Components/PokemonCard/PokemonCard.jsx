@@ -4,10 +4,11 @@ import { CardContainer } from "./PokemonCardStyles";
 import pokeball from "../../Assets/pngwing.png";
 import images from "../../Assets/types";
 import { PokemonContext } from "../../Context/PokemonContext";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export const PokemonCard = (props) => {
-  const { addPokemon, removePokemon } = useContext(PokemonContext);
+  const { addPokemon, removePokemon, setPokemonDetails } =
+    useContext(PokemonContext);
   const [pokemon, setPokemon] = useState({});
   const location = useLocation();
   const isHomePage = location.pathname == "/";
@@ -34,7 +35,11 @@ export const PokemonCard = (props) => {
         </div>
       </div>
       <div className="btn-group">
-        <a className="link"> Detalhes</a>
+        <Link to="pokemon-detail">
+          <a onClick={() => setPokemonDetails(pokemon)} className="link">
+            Detalhes
+          </a>
+        </Link>
         {isHomePage ? (
           <button
             onClick={() => {

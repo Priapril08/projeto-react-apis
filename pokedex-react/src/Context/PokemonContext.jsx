@@ -7,6 +7,7 @@ export const PokemonContext = createContext();
 export const PokemonProvider = (props) => {
   const [pokedexList, setPokedexList] = useState([]);
   const [listaPokemons, setListaPokemons] = useState([]);
+  const [pokemonDetails, setPokemonDetails] = useState({});
 
   const addPokemon = (pokemon) => {
     console.log(pokemon);
@@ -31,7 +32,14 @@ export const PokemonProvider = (props) => {
   }, []);
   return (
     <PokemonContext.Provider
-      value={{ listaPokemons, addPokemon, pokedexList, removePokemon }}
+      value={{
+        listaPokemons,
+        addPokemon,
+        pokedexList,
+        removePokemon,
+        pokemonDetails,
+        setPokemonDetails,
+      }}
     >
       {props.children}
     </PokemonContext.Provider>

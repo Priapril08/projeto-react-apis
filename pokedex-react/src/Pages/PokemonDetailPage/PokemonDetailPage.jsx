@@ -1,15 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
+import { PokemonContext } from "../../Context/PokemonContext";
+import { DetailContainer } from "./PodemonDetailPageStyles";
 
 export const PokemonDetailPage = () => {
-  // const location = useLocation ()
+  const { pokemonDetails } = useContext(PokemonContext);
+  console.log(pokemonDetails);
+  return (
+    <DetailContainer type={pokemonDetails.types?.[0].type.name}>
+      {pokemonDetails.name}
+      <div className="grid">
+        <img src={pokemonDetails.sprites.front_default} alt="" />
+        <img src={pokemonDetails.sprites.back_default} alt="" />
 
-  // const namePokemon = location.pathname.split('/')
-  // const name = namePokemon[namePokemon.lenght - 1]
+        <div className="stats">
+          <div className="info-stats">
+            {pokemonDetails?.stats?.map((item) => {
+              console.log(item);
+              return <div>{item.stat.name}</div>;
+            })}
+          </div>
+        </div>
+      </div>
 
-  // const [pokemonData, setPokemonData] = useState({})
-  // const getPokemon = async () => {
-  //   const result = await fetch ("https://pokeapi.co/api/v2/pokemon/")
-  // }
-
-  return <div>Nome do Pokemon</div>;
+      <div className="infos"></div>
+    </DetailContainer>
+  );
 };

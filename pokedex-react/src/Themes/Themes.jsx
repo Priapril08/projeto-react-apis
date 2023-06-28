@@ -8,12 +8,12 @@ export default {
     },
 
     backgroundCard: {
-      grass: "#8bbe8a",
+      grass: "#729F92",
       fire: "#EAAB7D",
-      water: "#58abf6",
+      water: "#71C3FF",
       poison: "#9f6e97",
-      normal: "#b5b9c4",
-      bug: "#8bd674",
+      normal: "#BF9762",
+      bug: "#76A866",
       flying: "#748fc9",
       electric: "#f2cb55",
       ground: "#f78551",
